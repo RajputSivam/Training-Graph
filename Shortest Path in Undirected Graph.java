@@ -44,4 +44,5 @@ class Solution {
         
         return distance;
     }
+}
 
