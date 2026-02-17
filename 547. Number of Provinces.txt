@@ -1,0 +1,83 @@
+547. Number of Provinces
+give There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+
+A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+
+You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+
+Return the total number of provinces.
+
+Note:-For grid in graph we have to use index to track position
+Approach 
+
+1.I create graph by, connecting all the present value in the give matrix( when isConnected[i][j] = 1,then only we say city a is connected with city b, else we did not have connected cities  ) 
+
+2. When I get index (i,j) then union them by union  function
+
+3.After applying union function
+
+4.I traverse on all edges,(0,isConnected.length)
+
+5. If node i is parent of itself then increate counter of connected component
+
+6.At last I return counter
+
+
+class Solution {
+    public int findCircleNum(int[][] isConnected)
+    {
+        int n=isConnected.length;
+        int []p=new int[n];
+        int []sz=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            p[i]=i;
+            sz[i]=1;
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<isConnected[0].length;j++ )
+            {
+                {
+                    if(  isConnected[i][j]==1)
+                    {
+                        union(i,j,p,sz);
+                    }   
+                }
+            }
+        }
+        int c=0;
+        for(int i=0;i<n;i++)
+        {
+            if(  find(i,p) ==i)
+            {
+                c++;
+            }
+        }
+        return c;
+    }
+    public static int find(int x,int []p)
+    {
+        if( p[x]!=x)
+        {
+            p[x]=find(p[x],p);
+        }
+        return p[x];
+    }
+    public static void union(int x,int y,int[]p,int [] sz)
+    {
+        int px=find(x,p);
+        int py=find(y,p);
+        if( px==py) return ;//cycle they will be part of cycle
+        if( sz[px]<sz[py] )
+        {
+            p[px]=py;
+            sz[py]+=sz[px];
+        }
+        else
+        {
+            p[py]=px;
+            sz[px]+=sz[py];
+        }
+    }
+}
