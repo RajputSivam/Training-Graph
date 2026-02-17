@@ -1,0 +1,9 @@
+when edges of graph will make valid tree
+
+conditions
+
+1. Number of Edges = n − 1 ( n=number of edges)
+
+2. Graph is Connected :Valid tree me koi bhi unconnected component nahi hona chahiye
+
+3. No Cycles:A tree cannot have any cycle.
