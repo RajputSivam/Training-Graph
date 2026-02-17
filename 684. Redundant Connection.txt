@@ -1,0 +1,18 @@
+684. Redundant Connection
+
+In this problem, a tree is an undirected graph that is connected and has no cycles.
+
+You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two different vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph.
+
+Return: an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input.
+
+Note Is code me parent and size array me value (1,<=n)tak initialize  kerene he
+
+Approach
+1. In this code number of vertices=Number of Edges
+2. I have create an array of size 2,used to store nodes having cycle
+2. then I trave on Array
+3. Before doing union I have check if these two nodes contain cycle, If yes I have updated the array which store cycle node
+4. At end return array contains cycle element
+5. I have use find function
+6.I have use union by size function
