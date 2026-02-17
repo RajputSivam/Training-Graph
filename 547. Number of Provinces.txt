@@ -1,0 +1,23 @@
+547. Number of Provinces
+give There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+
+A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+
+You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+
+Return the total number of provinces.
+
+Note:-For grid in graph we have to use index to track position
+Approach 
+
+1.I create graph by, connecting all the present value in the give matrix( when isConnected[i][j] = 1,then only we say city a is connected with city b, else we did not have connected cities  ) 
+
+2. When I get index (i,j) then union them by union  function
+
+3.After applying union function
+
+4.I traverse on all edges,(0,isConnected.length)
+
+5. If node i is parent of itself then increate counter of connected component
+
+6.At last I return counter
